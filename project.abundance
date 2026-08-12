@@ -1,0 +1,86 @@
+{
+  "atomType": "Molecule",
+  "x": 0,
+  "y": 0,
+  "uniqueID": "id-43071",
+  "name": "util.SetMass",
+  "ioValues": [
+    {
+      "name": "assembly",
+      "ioValue": "__GEOMETRY_INPUT__"
+    },
+    {
+      "name": "mass",
+      "ioValue": 10
+    }
+  ],
+  "topLevel": true,
+  "allAtoms": [
+    {
+      "atomType": "Output",
+      "x": 0.98,
+      "y": 0.5,
+      "uniqueID": "id-43072",
+      "ioValues": [
+        {
+          "name": "number or geometry",
+          "ioValue": "__GEOMETRY_INPUT__"
+        }
+      ]
+    },
+    {
+      "atomType": "Input",
+      "x": 0.0231,
+      "y": 0.35428571428571426,
+      "uniqueID": "id-43074",
+      "name": "assembly",
+      "type": "geometry"
+    },
+    {
+      "atomType": "Code",
+      "x": 0.4029947916666667,
+      "y": 0.6942857142857143,
+      "uniqueID": "id-43077",
+      "ioValues": [
+        {
+          "name": "assembly",
+          "ioValue": "__GEOMETRY_INPUT__"
+        },
+        {
+          "name": "mass",
+          "ioValue": 10
+        }
+      ],
+      "interpreterVersion": 1,
+      "code": "// Set mass\nfunction run(assembly: Assembly, mass: number) {\n  const initial = assembly.metadata ? assembly.metadata : {}\n  initial.mass = mass;\n  assembly.metadata = initial;\n  return assembly\n}",
+      "compiledCode": "\"use strict\";\n// Set mass\nfunction run(assembly, mass) {\n    const initial = assembly.metadata ? assembly.metadata : {};\n    initial.mass = mass;\n    assembly.metadata = initial;\n    return assembly;\n}\n"
+    },
+    {
+      "atomType": "Input",
+      "x": 0.0231,
+      "y": 0.5971428571428571,
+      "uniqueID": "id-43088",
+      "name": "mass"
+    }
+  ],
+  "allConnectors": [
+    {
+      "ap2Name": "assembly",
+      "ap1ID": "id-43074",
+      "ap2ID": "id-43077"
+    },
+    {
+      "ap2Name": "number or geometry",
+      "ap1ID": "id-43077",
+      "ap2ID": "id-43072"
+    },
+    {
+      "ap2Name": "mass",
+      "ap1ID": "id-43088",
+      "ap2ID": "id-43077"
+    }
+  ],
+  "unitsKey": "Unitless",
+  "fileTypeVersion": 1,
+  "filetypeVersion": 1
+}
